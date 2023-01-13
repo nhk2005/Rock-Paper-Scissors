@@ -22,9 +22,9 @@ function game() {
 
     let computerPoints = 0;
     let playerPoints = 0;
-    if (result == 0) {
+    if (result === 0) {
       console.log("It's a draw!");
-    } else if (result == 1) {
+    } else if (result === 1) {
       ++playerPoints;
       console.log("You win! " + playerChoice + " beats " + computerChoice);
     } else {
