@@ -14,14 +14,15 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game() {
+  let computerPoints = 0;
+  let playerPoints = 0;
+
   for (let i = 1; i <= 5; ++i) {
     const computerChoice = getComputerChoice();
     const playerChoice = prompt("Do you want to play Rock, Paper, or Scissors?").toUpperCase();
     
     const result = playRound(playerChoice, computerChoice);
 
-    let computerPoints = 0;
-    let playerPoints = 0;
     if (result === 0) {
       console.log("It's a draw!");
     } else if (result === 1) {
