@@ -29,7 +29,7 @@ function game() {
       console.log("You win! " + playerChoice + " beats " + computerChoice);
     } else {
       ++computerPoints;
-      return "You lose! " + computerChoice + " beats " + playerChoice;
+      console("You lose! " + computerChoice + " beats " + playerChoice);
     }
   }
 
