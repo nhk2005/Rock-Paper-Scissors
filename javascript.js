@@ -41,3 +41,5 @@ function game() {
     console.log("The player lost :(");
   }
 }
+
+game();
