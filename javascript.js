@@ -1,46 +1,43 @@
-// function getComputerChoice() {
-//   const rnd = Math.floor(3*Math.random()) + 1;
-//   return (rnd === 1) ? "ROCK" : (rnd == 2) ? "PAPER" : "SCISSORS";
-// }
+let computerPoints = 0;
+let playerPoints = 0;
 
-// function playRound(playerChoice, computerChoice) {
-//   if (playerChoice == computerChoice) {
-//     return 0;
-//   } else if (playerChoice == "ROCK" && computerChoice == "SCISSORS" || playerChoice == "SCISSORS" && computerChoice == "PAPER" || playerChoice == "PAPER" && computerChoice == "ROCK") {
-//     return 1;
-//   } else {
-//     return -1;
-//   }
-// }
+function getComputerChoice() {
+  const rnd = Math.floor(3*Math.random());
+  return (rnd === 0) ? "rock" : (rnd == 1) ? "paper" : "scissor";
+}
 
-// function game() {
-//   let computerPoints = 0;
-//   let playerPoints = 0;
+function getWinner(playerChoice, computerChoice) {
+  if (playerChoice == computerChoice) {
+    return 0;
+  } else if (playerChoice == "rock" && computerChoice == "scissor" || playerChoice == "scissor" && computerChoice == "paper" || playerChoice == "paper" && computerChoice == "rock") {
+    return 1;
+  } else {
+    return -1;
+  }
+}
 
-//   for (let i = 1; i <= 5; ++i) {
-//     const computerChoice = getComputerChoice();
-//     const playerChoice = prompt("Do you want to play Rock, Paper, or Scissors?").toUpperCase();
-    
-//     const result = playRound(playerChoice, computerChoice);
+function updateResult(playerPoints, computerPoints) {
+  document.querySelector(".player-score") = `Player's Score: ${playerPoints}`;
+  document.querySelector(".computers-score") = `Computer's Score: ${computerPoints}`;
+}
 
-//     if (result === 0) {
-//       console.log("It's a draw!");
-//     } else if (result === 1) {
-//       ++playerPoints;
-//       console.log("You win! " + playerChoice + " beats " + computerChoice);
-//     } else {
-//       ++computerPoints;
-//       console.log("You lose! " + computerChoice + " beats " + playerChoice);
-//     }
-//   }
+function playOneRound(playerChoice) {
+  const computerChoice = getComputerChoice();
+  const result = getWinner(playerChoice, computerChoice);
 
-//   if (playerPoints == computerPoints) {
-//     console.log("There's no winner!");
-//   } else if (playerPoints > computerPoints) {
-//     console.log("The player won!");
-//   } else {
-//     console.log("The player lost :(");
-//   }
-// }
+  if (result === 0) {
+    document.querySelector(".result").textContent = `The computer chose ${rps[computerChoice]}, so you two had a draw!`;
+  } else if (result === 1) {
+    ++playerPoints;
+    document.querySelector(".result").textContent = `The computer chose ${rps[computerChoice]}, so you won!`;
+  } else {
+    ++computerPoints;
+    document.querySelector(".result").textContent = `The computer chose ${rps[computerChoice]}, so you lost!`;
+  }
 
-// game();
+  updateResult(playerPoints, computerPoints)
+}
+
+document.querySelector(".rock").addEventListener("click", playOneRound("rock"));
+document.querySelector(".paper").addEventListener("click", playOneRound("paper"));
+document.querySelector(".scissors").addEventListener("click", playOneRound("scissors"));
