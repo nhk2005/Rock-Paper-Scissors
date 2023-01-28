@@ -44,12 +44,24 @@ function playOneRound(playerChoice) {
       document.querySelector(".result").textContent = `The player lost since they only had ${playerPoints} points!`;
     }
 
-    // document.querySelector(".rock").removeEventListener("click", playOneRound("rock"));
-    // document.querySelector(".paper").removeEventListener("click", playOneRound("paper"));
-    // document.querySelector(".scissors").removeEventListener("click", playOneRound("scissors"));
+    document.querySelector(".rock").removeEventListener("click", playRock);
+    document.querySelector(".paper").removeEventListener("click", playPaper);
+    document.querySelector(".scissors").removeEventListener("click", playScissors);
   }
 }
 
-document.querySelector(".rock").addEventListener("click", () => playOneRound("rock"));
-document.querySelector(".paper").addEventListener("click", () => playOneRound("paper"));
-document.querySelector(".scissors").addEventListener("click", () => playOneRound("scissors"));
+function playRock() {
+  playOneRound("rock");
+}
+
+function playPaper() {
+  playOneRound("paper");
+}
+
+function playScissors() {
+  playOneRound("scissors");
+}
+
+document.querySelector(".rock").addEventListener("click", playRock);
+document.querySelector(".paper").addEventListener("click", playPaper);
+document.querySelector(".scissors").addEventListener("click", playScissors);
