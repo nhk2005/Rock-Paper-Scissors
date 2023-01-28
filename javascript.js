@@ -26,13 +26,13 @@ function playOneRound(playerChoice) {
   const result = getWinner(playerChoice, computerChoice);
 
   if (result === 0) {
-    document.querySelector(".result").textContent = `The computer chose ${rps[computerChoice]}, so you two had a draw!`;
+    document.querySelector(".result").textContent = `The computer chose ${computerChoice}, so you two had a draw!`;
   } else if (result === 1) {
     ++playerPoints;
-    document.querySelector(".result").textContent = `The computer chose ${rps[computerChoice]}, so you won!`;
+    document.querySelector(".result").textContent = `The computer chose ${computerChoice}, so you won!`;
   } else {
     ++computerPoints;
-    document.querySelector(".result").textContent = `The computer chose ${rps[computerChoice]}, so you lost!`;
+    document.querySelector(".result").textContent = `The computer chose ${computerChoice}, so you lost!`;
   }
 
   updateResult(playerPoints, computerPoints)
