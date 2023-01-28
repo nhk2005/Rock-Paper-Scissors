@@ -37,8 +37,8 @@ function playOneRound(playerChoice) {
 
   updateResult(playerPoints, computerPoints);
 
-  if (playerPoints >= 3 || computerPoints >= 3) {
-    if (playerPoints >= 3) {
+  if (playerPoints >= 5 || computerPoints >= 5) {
+    if (playerPoints >= 5) {
       document.querySelector(".result").textContent = `The player won with ${playerPoints} points!`;
     } else {
       document.querySelector(".result").textContent = `The player lost since they only had ${playerPoints} points!`;
