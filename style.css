@@ -1,3 +1,21 @@
 body {
   min-height: 100vh;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-around;
+}
+
+.instruction {
+  align-self: center;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-around;
 }
