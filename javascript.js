@@ -17,8 +17,8 @@ function getWinner(playerChoice, computerChoice) {
 }
 
 function updateResult(playerPoints, computerPoints) {
-  document.querySelector(".player-score") = `Player's Score: ${playerPoints}`;
-  document.querySelector(".computers-score") = `Computer's Score: ${computerPoints}`;
+  document.querySelector(".player-score").textContent = `Player's Score: ${playerPoints}`;
+  document.querySelector(".computers-score").textContent = `Computer's Score: ${computerPoints}`;
 }
 
 function playOneRound(playerChoice) {
